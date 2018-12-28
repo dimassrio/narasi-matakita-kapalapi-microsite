@@ -1,0 +1,39 @@
+
+// Fonts
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.welcome--wrapper{
+	background: url('../image/communities.jpg');
+	background-size: cover;
+	min-height: 100vh;
+	min-width: 100vw;
+	max-height: 100vh;
+	max-width: 100vh;
+	overflow-y: scroll;
+}
+
+body{
+	font-size:16px;
+}
+
+.btn-ghost{
+	border-radius: 0;
+}
+
+.btn-blank{
+	color: white;
+	border: 1px solid white;
+	background: transparent;
+	font-weight: 600;
+}
