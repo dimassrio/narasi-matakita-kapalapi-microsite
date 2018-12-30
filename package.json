@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.5.21"
     },
     "dependencies": {
+        "@chenfengyuan/datepicker": "^1.0.3",
         "bulma": "^0.7.2"
     }
 }

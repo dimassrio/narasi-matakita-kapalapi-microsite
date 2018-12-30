@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 		Yajra\Datatables\DatatablesServiceProvider::class,
+		Spatie\Permission\PermissionServiceProvider::class,
+		// Kodeine\Acl\AclServiceProvider::class,
         /*
          * Application Service Providers...
          */

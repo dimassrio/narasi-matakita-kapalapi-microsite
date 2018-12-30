@@ -16,11 +16,10 @@
 
 					<div class="card" style="width: 18rem;">
 					<div class="card-data">
-						<p>{{$usersCount}}</p>
-						<span>Orang</span>
+						<img src="{{asset('image/membership-icons.jpg')}}" alt="">
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">Individu Komunitas</h5>
+						<h5 class="card-title">Data Individu</h5>
 						<p class="card-text">Berikut merupakan menu untuk melihat detail data anggota komunitas mata kita</p>
 						<a href="/users" class="btn btn-primary">Lihat Data</a>
 					</div>
@@ -45,6 +44,7 @@
 		align-items: center;
 		flex-wrap:wrap;
 		flex-direction: column;	
+		overflow: hidden;
 	}
 	.card-data p{
 		margin-bottom: 0;
@@ -52,6 +52,9 @@
 	.card-data span{
 		font-size: 0.5em;
 		flex-grow: 1;
+	}
+	.card-data img{
+		width: 100%;
 	}
 </style>
 <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> -->

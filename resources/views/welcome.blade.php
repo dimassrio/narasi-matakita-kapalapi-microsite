@@ -95,7 +95,17 @@
 			p{
 				font-size: 1em;
 			}
-			
+			.welcome--wrapper{
+				background: url('../image/communities.jpg');
+				background-size: cover;
+				min-height: 100vh;
+				min-width: 100vw;
+				max-height: 100vh;
+				max-width: 100vw;
+			}
+			.welcome--featured{
+				width: 100%;
+			}
         </style>
     </head>
     <body>
@@ -104,9 +114,9 @@
 				<div class="col-md-8 offset-md-2">
 					<div class="welcome--flex">
 						<div class="welcome--content">
-							<h2>Secangkir Rame Rame</h2>
-							<h1>KOMUNITAS <span>MATAKITA</span></h1>
-							<p>Jadilah bagian dari komunitas kreatif Narasi dan Kapal Api</p>
+							<h2>Secangkir Semangat</h2>
+							<img src="{{asset('image/logo-matakita.png')}}" alt="" class="welcome--featured">
+							<!-- <p>Jadilah bagian dari komunitas kreatif Narasi dan Kapal Api</p> -->
 							<a href="/login" class="btn btn-light btn-ghost btn-blank btn-lg">Login</a>
 							<a href="/register" class="btn btn-danger btn-ghost btn-lg">Daftar</a>
 						</div>

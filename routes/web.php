@@ -20,4 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users', 'UsersController@webIndex')->name('users.index');
 Route::get('/users/{id}', 'UsersController@webShow')->name('users.show');
+Route::put('/users/{id}', 'UsersController@webUpdate')->name('users.update');
 
