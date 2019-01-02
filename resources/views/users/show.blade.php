@@ -249,20 +249,31 @@
 			str = str.toString();
 			return str.length < max ? pad("0" + str, max) : str;
 		}
+		function chunk(str, val = 4){
+			let result = "";
+			for(let i=0; i<= str.length; i+=val){
+				result = result + str.substr(i, i+(val));
+				if(i < str.length - val){
+					result = result + " ";
+				}
+			}
+			return result;
+		}
 		document.addEventListener("DOMContentLoaded", function(){
 			$('#birth').datepicker();
 			const canvas = document.getElementById("cardCanvas").getContext('2d');
 			const img = new Image();
 			img.src = "{{ asset('image/card-background.jpg')}}"
-			const id = pad("{{$item->id}}", 8);
+			const id = chunk(pad("{{$item->id}}", 8));
 			const name = "{{$item->name}}".substring(0, 12);
 			img.onload = function(){
 				canvas.drawImage(img, 0, 0, 860, 540);
 				canvas.font = "60px Courier New";
 				canvas.fillStyle = "White";
-				canvas.fillText(name, 400, 500);
+				canvas.textAlign = "right";
+				canvas.fillText(name, 820, 420);
 				canvas.font = "36px Courier New";
-				canvas.fillText(id, 660, 420); 
+				canvas.fillText(id, 820, 340); 
 			}
 		});
 </script>
