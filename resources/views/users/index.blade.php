@@ -14,6 +14,8 @@
                         </div>
                     @endif
 					<div id="chart_div"></div>
+					<div id="chart_male"></div>
+					<div id="chart_female"></div>
                     <table class="table table-bordered" id="users-table">
 					<thead>
 						<tr>
@@ -64,34 +66,41 @@
 		});
 
 		google.charts.load('current', {'packages':['corechart', 'bar']});
-		google.charts.setOnLoadCallback(drawChart);
-		function drawChart() {
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Bulan');
-        data.addColumn('number', 'Jumlah Pendaftar');
-        data.addRows([
-        //   
-			@foreach($charts as $c)
-				['{{$c->month}}', {{$c->value}}],
-			@endforeach
-        ]);
+		google.charts.setOnLoadCallback(function(){
+			const options = {
+				'title':'Jumlah Pendaftar Komunitas MataKita',
+				'width':800,
+				'height':400,
+				'vAxis': {
+					'viewWindow': {
+						'min': 0,
+						'max': 100000
+					}
+				}
+			};
+			drawChart('string', 'number', 'Bulan', 'Jumlah pendaftar', options, 'chart_div', '/api/charts', 'value');
+			drawChart('string', 'number', 'Bulan', 'Jumlah pendaftar Laki Laki', options, 'chart_male', '/api/charts', 'male')
+			drawChart('string', 'number', 'Bulan', 'Jumlah pendaftar Perempuan', options, 'chart_female', '/api/charts', 'female')
+		});
+		function drawChart(ax, ay, tx, ty, options, id, api, prop) {
+			var data = new google.visualization.DataTable();
+			data.addColumn(ax, tx);
+			data.addColumn(ay, ty);
 
-        // Set chart options
-        var options = {'title':'Jumlah Pendaftar Komunitas MataKita',
-                       'width':800,
-                       'height':400,
-					   'vAxis': {
-						   'viewWindow': {
-						   'min': 0,
-						   'max': 100000
-					   }
-					   }
-					   };
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+			// Instantiate and draw our chart, passing in some options.
+			var chart = new google.visualization.ColumnChart(document.getElementById(id));
+			$.getJSON('/api/charts', function(response){
+				
+				response.forEach(element => {
+					data.addRow([element.month, element[prop]]);
+				});
+				chart.draw(data, options);
+			})
+			// Create the data table.
+			
+			
+			// Set chart options
+			
 		}
 	});
 	</script>

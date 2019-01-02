@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/users', 'UsersController@apiIndex')->name('api.users');
+Route::get('/charts', 'ChartsController@apiIndex')->name('api.charts');
