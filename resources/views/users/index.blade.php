@@ -16,6 +16,7 @@
 					<div id="chart_div"></div>
 					<div id="chart_male"></div>
 					<div id="chart_female"></div>
+					<div id="chart_other"></div>
                     <table class="table table-bordered" id="users-table">
 					<thead>
 						<tr>
@@ -81,6 +82,7 @@
 			drawChart('string', 'number', 'Bulan', 'Jumlah pendaftar', options, 'chart_div', '/api/charts', 'value');
 			drawChart('string', 'number', 'Bulan', 'Jumlah pendaftar Laki Laki', options, 'chart_male', '/api/charts', 'male')
 			drawChart('string', 'number', 'Bulan', 'Jumlah pendaftar Perempuan', options, 'chart_female', '/api/charts', 'female')
+			drawChart('string', 'number', 'Bulan', 'Jumlah pendaftar Tidak Teridentifikasi', options, 'chart_other', '/api/charts', 'other')
 		});
 		function drawChart(ax, ay, tx, ty, options, id, api, prop) {
 			var data = new google.visualization.DataTable();
